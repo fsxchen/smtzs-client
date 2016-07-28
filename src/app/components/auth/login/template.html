@@ -1,0 +1,53 @@
+<div class="container" >
+    <div class="title">
+        Welcome
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="input-field col s12">
+                <input [(ngModel)]="user.email" id="email"
+                    type="email" class="validate">
+                <label for="email">Email</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input [(ngModel)]="user.password" id="password"
+                    type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+
+        <span>{{errorMsg}}</span>
+        <button (click)="login()"
+            class="btn waves-effect waves-light"
+            type="submit" name="action">Login</button>
+    </div>
+</div>
+
+<div class="form-page__wrapper" data-reactid=".0.1">
+  <div class="form-page__form-wrapper" data-reactid=".0.1.0">
+    <div class="form-page__form-header" data-reactid=".0.1.0.0">
+      <h2 class="form-page__form-heading" data-reactid=".0.1.0.0.0">Login</h2>
+    </div><form class="form" data-reactid=".0.1.0.1">
+      <div class="form__error-wrapper" data-reactid=".0.1.0.1.0">
+        <p class="form__error form__error--username-taken" data-reactid=".0.1.0.1.0.0">Sorry, but this username is already taken.</p>
+        <p class="form__error form__error--username-not-registered" data-reactid=".0.1.0.1.0.1">This username does not exist.</p>
+        <p class="form__error form__error--wrong-password" data-reactid=".0.1.0.1.0.2">Wrong password.</p>
+        <p class="form__error form__error--field-missing" data-reactid=".0.1.0.1.0.3">Please fill out the entire form.</p>
+        <p class="form__error form__error--failed" data-reactid=".0.1.0.1.0.4">Something went wrong, please try again!</p>
+      </div>
+      <div class="form__field-wrapper" data-reactid=".0.1.0.1.1">
+        <input class="form__field-input" type="text" id="username" value="" placeholder="frank.underwood" autocorrect="off" autocapitalize="off" spellcheck="false" data-reactid=".0.1.0.1.1.0">
+        <label class="form__field-label" for="username">Username</label>
+      </div><div class="form__field-wrapper">
+        <input class="form__field-input" id="password" type="password" value="" placeholder="••••••••••">
+        <label class="form__field-label" for="password">Password</label>
+      </div>
+      <div class="form__submit-btn-wrapper">
+        <button class="form__submit-btn" type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
