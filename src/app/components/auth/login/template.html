@@ -1,53 +1,46 @@
-<div class="container" >
-    <div class="title">
-        Welcome
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="input-field col s12">
-                <input [(ngModel)]="user.email" id="email"
-                    type="email" class="validate">
-                <label for="email">Email</label>
-            </div>
-        </div>
+<div class="row">
+    <div ng-include="'partials/flash_message/flash_message.html'"></div>
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+        <h1 class="text-center login-title">登錄</h1>
+        <div class="account-wall">
+                <img class="profile-img" src="http://7xigc0.com1.z0.glb.clouddn.com/582985648.jpg"
+                     alt="">
 
-        <div class="row">
-            <div class="input-field col s12">
-                <input [(ngModel)]="user.password" id="password"
-                    type="password" class="validate">
-                <label for="password">Password</label>
-            </div>
+              <form (ngSubmit)="login()" #loginForm="ngForm" class="form-signin"  >
+                <div style="display:none;"><input id="csrf_token" name="csrf_token" type="hidden" value="1445232629##b0ce532664a5ff9efc5945769ad92f78250df491"></div>
+                <input class="form-control" id="username" name="username" placeholder="用户名" type="text" [(ngModel)]="user.username">
+                <input class="form-control" id="password" name="password" placeholder="密码" type="password" [(ngModel)]="user.password">
+                <Input class="btn btn-block" id="submit" name="submit" type="submit" value="登录">
+                <label class="ckeckbox pull-left">
+                     <input type="checkbox" name="remember_me" [(ngModel)]="rememberMe">
+                       记住登陆
+                </label>
+                <a href="/auth/auth/changepass" class="pull-right need-help">忘记密码? </a><span class="clearfix"></span>
+            </form>
         </div>
-
-        <span>{{errorMsg}}</span>
-        <button (click)="login()"
-            class="btn waves-effect waves-light"
-            type="submit" name="action">Login</button>
+        <!-- <a ui-sref="register" class="text-center new-account">注册新用户 </a> -->
     </div>
 </div>
 
-<div class="form-page__wrapper" data-reactid=".0.1">
-  <div class="form-page__form-wrapper" data-reactid=".0.1.0">
-    <div class="form-page__form-header" data-reactid=".0.1.0.0">
-      <h2 class="form-page__form-heading" data-reactid=".0.1.0.0.0">Login</h2>
-    </div><form class="form" data-reactid=".0.1.0.1">
-      <div class="form__error-wrapper" data-reactid=".0.1.0.1.0">
-        <p class="form__error form__error--username-taken" data-reactid=".0.1.0.1.0.0">Sorry, but this username is already taken.</p>
-        <p class="form__error form__error--username-not-registered" data-reactid=".0.1.0.1.0.1">This username does not exist.</p>
-        <p class="form__error form__error--wrong-password" data-reactid=".0.1.0.1.0.2">Wrong password.</p>
-        <p class="form__error form__error--field-missing" data-reactid=".0.1.0.1.0.3">Please fill out the entire form.</p>
-        <p class="form__error form__error--failed" data-reactid=".0.1.0.1.0.4">Something went wrong, please try again!</p>
-      </div>
-      <div class="form__field-wrapper" data-reactid=".0.1.0.1.1">
-        <input class="form__field-input" type="text" id="username" value="" placeholder="frank.underwood" autocorrect="off" autocapitalize="off" spellcheck="false" data-reactid=".0.1.0.1.1.0">
-        <label class="form__field-label" for="username">Username</label>
-      </div><div class="form__field-wrapper">
-        <input class="form__field-input" id="password" type="password" value="" placeholder="••••••••••">
-        <label class="form__field-label" for="password">Password</label>
-      </div>
-      <div class="form__submit-btn-wrapper">
-        <button class="form__submit-btn" type="submit">Login</button>
-      </div>
-    </form>
-  </div>
-</div>
+<form #registrationForm="ngForm" (ngSubmit)="registerUser(registrationForm.value)">
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input id="username" type="text" class="form-control" placeholder="Username" ngControl="username">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="text" class="form-control" placeholder="Email" ngControl="email">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" type="password" class="form-control" placeholder="Password" ngControl="password">
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+
+  </form>

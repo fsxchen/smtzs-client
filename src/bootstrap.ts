@@ -6,6 +6,7 @@ import {ELEMENT_PROBE_PROVIDERS} from '@angular/platform-browser';
 import {ROUTER_PROVIDERS} from '@angular/router-deprecated';
 import {HTTP_PROVIDERS} from '@angular/http';
 
+
 const ENV_PROVIDERS = [];
 // depending on the env mode, enable prod mode or add debugging modules
 if (process.env.ENV === 'prod') {
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function main() {
         // These are dependencies of our App
         ...HTTP_PROVIDERS,
         ...ROUTER_PROVIDERS,
-        ...ENV_PROVIDERS
+        ...ENV_PROVIDERS,
     ])
         .catch(err => console.error(err));
 });
